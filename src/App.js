@@ -21,25 +21,7 @@ function App() {
   useEffect(() => {
     console.log(cart);
   }, [cart]);
-  // function addToCart(book) {
-  //   const dupeItem = cart.find((item) => +item.id === +book.id);
-  //   if (dupeItem) {
-  //     setCart(cart.map(item => {
-  //       if (+item.id === +dupeItem.id) {
-  //         return {
-  //           ...item,
-  //           quantinty: dupeItem.quantity + 1,
-  //         }
-  //       }
-  //       else {
-  //         return item;
-  //       }
-  //     }))
-  //   }
-  //   else {
-  //     setCart([...cart, {...book, quantity: 1}])
-  //   }
-  // }
+
   return (
     <Router>
     <div className="App">
