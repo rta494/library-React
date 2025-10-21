@@ -7,8 +7,7 @@ import { books } from "./data.js";
 import BookInfo from "./pages/BookInfo.jsx";
 import Cart from "./pages/Cart.jsx";
 import React, { useState, useEffect } from "react";
-import { SpeedInsights } from '@vercel/speed-insights/react';
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -31,14 +30,12 @@ function App() {
   }
 
   function removeItem(item) {
-    setCart(
-      cart.filter((book) => book.id !== item.id)
-    );
+    setCart(cart.filter((book) => book.id !== item.id));
   }
 
   function numberOfItems() {
     let counter = 0;
-    cart.forEach(item => {
+    cart.forEach((item) => {
       counter += item.quantity;
     });
     return counter;
@@ -51,7 +48,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav numberOfItems={numberOfItems()}/>
+        <Nav numberOfItems={numberOfItems()} />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/books" exact element={<Books books={books} />} />
@@ -64,15 +61,19 @@ function App() {
           <Route
             path="/cart"
             element={
-              <Cart books={books} cart={cart} changeQuantity={changeQuantity} removeItem={removeItem}/>
+              <Cart
+                books={books}
+                cart={cart}
+                changeQuantity={changeQuantity}
+                removeItem={removeItem}
+              />
             }
           />
         </Routes>
         <Footer />
-        <SpeedInsights />
       </div>
+      <SpeedInsights />
     </Router>
-
   );
 }
 
